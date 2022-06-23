@@ -9,7 +9,7 @@
     
     <title>
         
-            Hello World |
+            GO中的（...）用法 |
         
         随记
     </title>
@@ -127,7 +127,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">Hello World</span>
+            <span class="title-hover-animation">GO中的（...）用法</span>
         </div>
 
         
@@ -146,8 +146,8 @@
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fas fa-edit"></i>&nbsp;
-        <span class="pc">2022-05-31 13:02:25</span>
-        <span class="mobile">2022-05-31 13:02</span>
+        <span class="pc">2022-06-23 22:58:35</span>
+        <span class="mobile">2022-06-23 22:58</span>
     </span>
     
     
@@ -155,7 +155,7 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>75 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>402 字</span>
         </span>
     
     
@@ -176,20 +176,26 @@
         
 
         <div class="article-content markdown-body">
-            <p>Welcome to <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/" >Hexo<i class="fas fa-external-link-alt"></i></a>! This is your very first post. Check <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/" >documentation<i class="fas fa-external-link-alt"></i></a> for more info. If you get any problems when using Hexo, you can find the answer in <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html" >troubleshooting<i class="fas fa-external-link-alt"></i></a> or you can ask me on <a class="link"   target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues" >GitHub<i class="fas fa-external-link-alt"></i></a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+            <h3 id="GO中的（…）用法"><a href="#GO中的（…）用法" class="headerlink" title="GO中的（…）用法"></a>GO中的（…）用法</h3><h4 id="1-函数中作为可变数量参数"><a href="#1-函数中作为可变数量参数" class="headerlink" title="1.函数中作为可变数量参数"></a>1.函数中作为可变数量参数</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="comment">//multiParam 可以接受可变数量的参数</span></span><br><span class="line">    multiParam(<span class="string">&quot;jerry&quot;</span>, <span class="string">&quot;herry&quot;</span>)</span><br><span class="line">    names := []<span class="type">string</span>&#123;<span class="string">&quot;jerry&quot;</span>, <span class="string">&quot;herry&quot;</span>&#125;</span><br><span class="line">    multiParam(names...)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">multiParam</span><span class="params">(args ...<span class="type">string</span>)</span></span> &#123;</span><br><span class="line">    <span class="comment">//接受的参数放在args数组中</span></span><br><span class="line">    <span class="keyword">for</span> _, e := <span class="keyword">range</span> args &#123;</span><br><span class="line">        fmt.Println(e)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html" >Writing<i class="fas fa-external-link-alt"></i></a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p><strong>当同时存在普通参数和可变参数时，将可变参数放在最右边</strong></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">   <span class="comment">//multiParam 可以接受可变数量的参数</span></span><br><span class="line">   multiParam(<span class="string">&quot;jerry&quot;</span>, <span class="number">1</span>)</span><br><span class="line">   multiParam(<span class="string">&quot;php&quot;</span>, <span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">multiParam</span><span class="params">(name <span class="type">string</span>, args ...<span class="type">int</span>)</span></span> &#123;</span><br><span class="line">   fmt.Println(name)</span><br><span class="line">   <span class="comment">//接受的参数放在args数组中</span></span><br><span class="line">   <span class="keyword">for</span> _, e := <span class="keyword">range</span> args &#123;</span><br><span class="line">      fmt.Println(e)</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/server.html" >Server<i class="fas fa-external-link-alt"></i></a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>:pushpin:</p>
+<p><strong>作为函数参数时：</strong></p>
+<p><code>参数名 ...类型</code>—&gt;<code>args ...int</code></p>
+<p><strong>作为变量传入时:</strong></p>
+<p><code>函数名(切片...)</code>—&gt;<code>multiParam(names...)</code></p>
+<h4 id="2-切片"><a href="#2-切片" class="headerlink" title="2.切片"></a>2.切片</h4><blockquote>
+<p><code>s</code>如果使用<code>s...</code>符号解压缩切片，则可以将切片直接传递给可变参数函数。在这种情况下，不会创建新的切片。（类似传指针？）</p>
+</blockquote>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="comment">//multiParam 可以接受可变数量的参数</span></span><br><span class="line">    names := []<span class="type">string</span>&#123;<span class="string">&quot;jerry&quot;</span>, <span class="string">&quot;herry&quot;</span>&#125;</span><br><span class="line">    multiParam(names...)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">multiParam</span><span class="params">(args ...<span class="type">string</span>)</span></span> &#123;</span><br><span class="line">    <span class="comment">//接受的参数放在args数组中</span></span><br><span class="line">    <span class="keyword">for</span> _, e := <span class="keyword">range</span> args &#123;</span><br><span class="line">        fmt.Println(e)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html" >Generating<i class="fas fa-external-link-alt"></i></a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>​    <strong>使用append合并slice</strong></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">stooges := []<span class="type">string</span>&#123;<span class="string">&quot;Moe&quot;</span>, <span class="string">&quot;Larry&quot;</span>, <span class="string">&quot;Curly&quot;</span>&#125;</span><br><span class="line">lang := []<span class="type">string</span>&#123;<span class="string">&quot;php&quot;</span>, <span class="string">&quot;golang&quot;</span>, <span class="string">&quot;java&quot;</span>&#125;</span><br><span class="line">stooges = <span class="built_in">append</span>(stooges, lang...)</span><br><span class="line">fmt.Println(stooges)</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html" >Deployment<i class="fas fa-external-link-alt"></i></a></p>
-
+<h4 id="3-数组文字"><a href="#3-数组文字" class="headerlink" title="3.数组文字"></a>3.数组文字</h4><p>在不想写数组的长度时可以这样使用</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">stooges := [...]<span class="type">string</span>&#123;<span class="string">&quot;Moe&quot;</span>, <span class="string">&quot;Larry&quot;</span>, <span class="string">&quot;Curly&quot;</span>&#125;</span><br><span class="line">arr := [...]<span class="type">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;</span><br><span class="line">fmt.Println(<span class="built_in">len</span>(stooges))</span><br><span class="line">fmt.Println(<span class="built_in">len</span>(arr))</span><br></pre></td></tr></table></figure>
         </div>
 
         
@@ -202,18 +208,33 @@
                     <div class="article-prev">
                         <a class="prev"
                            rel="prev"
-                           href="/2022/06/19/go-demo/"
+                           href="/2022/06/23/RPC%20%E5%AF%B9%E6%AF%94%20RESTful/"
                         >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
                             </span>
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">go demo</span>
+                                <span class="post-nav-title-item">RPC 对比 RESTful</span>
                                 <span class="post-nav-item">上一篇</span>
                             </span>
                         </a>
                     </div>
                 
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/06/23/go%E7%9A%84%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E7%82%B9/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">go中的相关知识</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
                 
             </div>
         

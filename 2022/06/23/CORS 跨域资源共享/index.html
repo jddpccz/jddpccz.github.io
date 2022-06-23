@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="jddpccz">
+    
+    <title>
+        
+            CORS 跨域资源共享 |
+        
+        随记
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="https://i.loli.net/2020/12/22/LslVe9WzOSr2giJ.jpg">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"jddpccz.github.io","root":"/","language":"zh-CN","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"https://i.loli.net/2020/12/22/LslVe9WzOSr2giJ.jpg","favicon":"https://i.loli.net/2020/12/22/LslVe9WzOSr2giJ.jpg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"https://s2.loli.net/2022/06/23/cTipwDMSRrJzndE.png","description":"Clear Mind"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":true},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                随记
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">CORS 跨域资源共享</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="https://i.loli.net/2020/12/22/LslVe9WzOSr2giJ.jpg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">jddpccz</span>
+                        
+                            <span class="author-label">Lv2</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-06-23 22:57:37</span>
+        <span class="mobile">2022-06-23 22:57</span>
+    </span>
+    
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>1.5k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>6 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h3 id="CORS-跨域资源共享"><a href="#CORS-跨域资源共享" class="headerlink" title="CORS 跨域资源共享"></a>CORS 跨域资源共享</h3><h4 id="一-为什么需要跨域"><a href="#一-为什么需要跨域" class="headerlink" title="一.为什么需要跨域"></a>一.为什么需要跨域</h4><p>考虑到浏览器的安全，采用了同源策略(Same-Origin Policy)，而为了请求不同域的资源产生了跨域问题</p>
+<blockquote>
+<p><strong>同源策略</strong>：同源就是域名、协议、端口完全相同，例如<a class="link"   target="_blank" rel="noopener" href="http://a.com与https//a.com%E5%B0%B1%E4%B8%8D%E6%98%AF%E5%90%8C%E6%BA%90%E7%9A%84%EF%BC%8C%E5%9B%A0%E4%B8%BA%E5%8D%8F%E8%AE%AE%E4%B8%8D%E5%90%8C" >http://a.com与https://a.com就不是同源的，因为协议不同<i class="fas fa-external-link-alt"></i></a></p>
+</blockquote>
+<h4 id="二-CORS"><a href="#二-CORS" class="headerlink" title="二.CORS"></a>二.CORS</h4><p>跨源域资源共享机制允许 Web 应用服务器进行跨源访问控制，从而使跨源数据传输得以安全进行。跨域资源共享(Cross-Origin Resource Share 简称CORS)，CORS是一个W3C标准，<strong>它允许浏览器向跨源服务器发出XMLHttpRequest请求</strong>，从而突破了ajax只能使用同源服务的局限性。</p>
+<p>CORS允许服务器声明哪些源站通过浏览器<strong>有权限访问哪些资源</strong>，并且对于那些对服务器可能产生副作用的HTTP请求，例如POST、DELETE请求等，浏览器必须首先使用OPTIONS方法发起一个预检请求(prelight request)，从而获知服务器是否允许该跨域请求。而且在预检请求的返回中，服务器端也可以通知客户端是否需要携带身份凭证，例如cookie等。</p>
+<blockquote>
+<p>tip：</p>
+<p>CORS请求失败浏览器会产生错误，但是为了安全，在JavaScript代码层面是无法获知到底具体是哪里出了问题。你只能查看浏览器的控制台以得知具体是哪里出现了错误。这一点需要额外注意，特别是在定位服务接口的问题时往往只能看到接口报错了，但是却看不到具体的错误信息，如果直接就去排查服务是否有问题就会绕远路浪费时间了。</p>
+<p>![image-20220620162015803](/Users/zonst/Library/Application Support/typora-user-images/image-20220620162015803.png)</p>
+</blockquote>
+<h4 id="三-CORS实现机制"><a href="#三-CORS实现机制" class="headerlink" title="三.CORS实现机制"></a>三.CORS实现机制</h4><p>CORS标准新增了一组HTTP头字段来实现该机制。服务端通过设置相应的头部字段来控制是否允许该次跨域请求，如果服务端没有返回正确的响应头部，则请求方不会收到任何数据。</p>
+<p><strong>请求Header</strong></p>
+<table>
+<thead>
+<tr>
+<th>头名</th>
+<th align="left">值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Origin</strong></td>
+<td align="left">本次请求来自哪个源（协议 + 域名 + 端口）</td>
+<td>服务器根据这个值，决定是否同意这次请求。简单请求和预检请求均包含该Header</td>
+</tr>
+<tr>
+<td><strong>Access-Control-Request-Method</strong></td>
+<td align="left">请求方法列表</td>
+<td>预检请求时，该字段是必须的，用来列出浏览器的CORS请求会用到哪些HTTP方法</td>
+</tr>
+<tr>
+<td><strong>Access-Control-Request-Headers</strong></td>
+<td align="left">额外的Headers</td>
+<td>该字段是一个逗号分隔的字符串，指定浏览器CORS请求会额外发送的头信息字段</td>
+</tr>
+</tbody></table>
+<p><strong>响应Header</strong></p>
+<table>
+<thead>
+<tr>
+<th>头名</th>
+<th>值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Access-Control-Allow-Origin</strong></td>
+<td>该字段是必须的。它的值要么是请求时<code>Origin</code>字段的值，要么是一个<code>*</code>，表示接受任意域名的请求。</td>
+<td>每次回应都必定包含的</td>
+</tr>
+<tr>
+<td><strong>Access-Control-Allow-Credentials</strong></td>
+<td>该字段可选。它的值是一个布尔值，表示是否允许发送Cookie。默认是false，不发送Cookie。</td>
+<td>设为<code>true</code>，即表示服务器明确许可，Cookie可以包含在请求中，一起发给服务器。这个值也只能设为<code>true</code>，如果服务器不要浏览器发送Cookie，删除该字段即可。另外当该字段为<code>true</code>时，<code>Access-Control-Allow-Origin</code>字段不能是<code>*</code>，只能为Origin字段的值。</td>
+</tr>
+<tr>
+<td><strong>Access-Control-Expose-Headers</strong></td>
+<td>该字段可选。</td>
+<td>CORS请求时，<code>XMLHttpRequest</code>对象的<code>getResponseHeader()</code>方法只能拿到6个基本字段：<code>Cache-Control</code>、<code>Content-Language</code>、<code>Content-Type</code>、<code>Expires</code>、<code>Last-Modified</code>、<code>Pragma</code>。如果想拿到其他字段，就必须在<code>Access-Control-Expose-Headers</code>里面指定。</td>
+</tr>
+<tr>
+<td><strong>Access-Control-Allow-Methods</strong></td>
+<td>预检请求返回字段，必需，它的值是逗号分隔的一个字符串，表明服务器支持的所有跨域请求的方法</td>
+<td>返回的是所有支持的方法，而不单是浏览器请求的那个方法。这是为了避免多次”预检”请求。</td>
+</tr>
+<tr>
+<td><strong>Access-Control-Allow-Headers</strong></td>
+<td>预检请求返回字段，如果浏览器请求包括<code>Access-Control-Request-Headers</code>字段，则<code>Access-Control-Allow-Headers</code>字段是必需的。</td>
+<td>它也是一个逗号分隔的字符串，表明服务器支持的所有头信息字段，不限于浏览器在”预检”中请求的字段。</td>
+</tr>
+<tr>
+<td><strong>Access-Control-Max-Age</strong></td>
+<td>预检请求返回字段，可选，用来指定本次预检请求的有效期，单位为秒。</td>
+<td>允许缓存该条回应<code>Access-Control-Max-Age</code>秒，在此期间，不用发出另一条预检请求。</td>
+</tr>
+</tbody></table>
+<h4 id="四-go代码实践"><a href="#四-go代码实践" class="headerlink" title="四.go代码实践"></a>四.go代码实践</h4><p><strong>使用gin自定义中间件实现</strong></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Cors</span><span class="params">()</span></span> gin.HandlerFunc &#123;</span><br><span class="line">   <span class="keyword">return</span> <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line">      method := c.Request.Method</span><br><span class="line">      origin := c.Request.Header.Get(<span class="string">&quot;Origin&quot;</span>) <span class="comment">//请求头部</span></span><br><span class="line">      <span class="keyword">if</span> origin != <span class="string">&quot;&quot;</span> &#123;</span><br><span class="line">         <span class="comment">// 当Access-Control-Allow-Credentials为true时，将*替换为指定的域名</span></span><br><span class="line">         c.Header(<span class="string">&quot;Access-Control-Allow-Origin&quot;</span>, <span class="string">&quot;http://a.com&quot;</span>) </span><br><span class="line">         c.Header(<span class="string">&quot;Access-Control-Allow-Methods&quot;</span>, <span class="string">&quot;POST, GET, OPTIONS, PUT, DELETE, UPDATE&quot;</span>)</span><br><span class="line">         c.Header(<span class="string">&quot;Access-Control-Allow-Headers&quot;</span>, <span class="string">&quot;Origin, X-Requested-With, X-Extra-Header, Content-Type, Accept, Authorization&quot;</span>)</span><br><span class="line">         c.Header(<span class="string">&quot;Access-Control-Expose-Headers&quot;</span>, <span class="string">&quot;Content-Length, Access-Control-Allow-Origin, Access-Control-Allow-Headers, Cache-Control, Content-Language, Content-Type&quot;</span>)</span><br><span class="line">         c.Header(<span class="string">&quot;Access-Control-Allow-Credentials&quot;</span>, <span class="string">&quot;true&quot;</span>)</span><br><span class="line">         c.Header(<span class="string">&quot;Access-Control-Max-Age&quot;</span>, <span class="string">&quot;86400&quot;</span>) <span class="comment">// 可选</span></span><br><span class="line">         c.Set(<span class="string">&quot;content-type&quot;</span>, <span class="string">&quot;application/json&quot;</span>) <span class="comment">// 可选</span></span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> method == <span class="string">&quot;OPTIONS&quot;</span> &#123;</span><br><span class="line">         c.AbortWithStatus(http.StatusNoContent)</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      c.Next()</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">  r := gin.Default()</span><br><span class="line">  r.Use(Cors()) <span class="comment">//开启中间件 允许使用跨域请求</span></span><br><span class="line">  <span class="comment">// 其他路由设置</span></span><br><span class="line">  r.run()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>为了更复杂鉴权逻辑，使用beego的cros包实现</strong></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> (</span><br><span class="line">   <span class="string">&quot;github.com/beego/beego/v2&quot;</span></span><br><span class="line">  <span class="string">&quot;github.com/beego/beego/v2/server/web/filter/cors&quot;</span></span><br><span class="line">)</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">  <span class="comment">// CORS for https://foo.* origins, allowing:</span></span><br><span class="line">  <span class="comment">// - PUT and PATCH methods</span></span><br><span class="line">  <span class="comment">// - Origin header</span></span><br><span class="line">  <span class="comment">// - Credentials share</span></span><br><span class="line">  beego.InsertFilter(<span class="string">&quot;*&quot;</span>, beego.BeforeRouter, cors.Allow(&amp;cors.Options&#123;</span><br><span class="line">   AllowOrigins:     []<span class="type">string</span>&#123;<span class="string">&quot;https://*.foo.com&quot;</span>&#125;,</span><br><span class="line">   AllowMethods:     []<span class="type">string</span>&#123;<span class="string">&quot;PUT&quot;</span>, <span class="string">&quot;PATCH&quot;</span>&#125;,</span><br><span class="line">   AllowHeaders:     []<span class="type">string</span>&#123;<span class="string">&quot;Origin&quot;</span>&#125;,</span><br><span class="line">   ExposeHeaders:    []<span class="type">string</span>&#123;<span class="string">&quot;Content-Length&quot;</span>&#125;,</span><br><span class="line">   AllowCredentials: <span class="literal">true</span>,</span><br><span class="line">  &#125;))</span><br><span class="line">  beego.Run()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+        </div>
+
+        
+
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2022/06/23/go%E7%9A%84%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E7%82%B9/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">go中的相关知识</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/06/23/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9A%84%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">微服务的体系结构</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">jddpccz</a>
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/dark-light-toggle.js"></script>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/code-copy.js"></script>
+
+
+
+
+<div class="post-scripts pjax">
+    
+</div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>
