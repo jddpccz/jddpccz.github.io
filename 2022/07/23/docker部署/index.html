@@ -16,23 +16,24 @@
   <meta name="author" content="jddpccz">
   <meta name="keywords" content="">
   
-    <meta name="description" content="RPC 对比 RESTfulRPC 的消息传输可以通过 TCP、UDP 或者 HTTP等，所以有时候我们称之为RPC over TCP、 RPC over HTTP。RPC 通过 HTTP 传输消息的时候和 RESTful的架构是类似的，但是也有不同。 :penguin:RPC over HTTP 与 RESTful对比 首先，对比耦合度，参数顺序  RPC 的客户端和服务器端是紧耦合的，客户端需">
+    <meta name="description" content="一.docker部署静态网页在项目根目录下新建Dockerfile和docker-compose.yml文件 Dockerfile 1234# 指定基础镜像FROM nginx # 把当前目录复制到.&#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html 也即nginx的默认html目录下COPY . .&#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html  docker-compose.yml 1234567vers">
 <meta property="og:type" content="article">
-<meta property="og:title" content="RPC 对比 RESTful">
-<meta property="og:url" content="https://jddpccz.github.io/2022/06/23/RPC%20%E5%AF%B9%E6%AF%94%20RESTful/index.html">
+<meta property="og:title" content="docker部署静态网页">
+<meta property="og:url" content="https://jddpccz.github.io/2022/07/23/docker%E9%83%A8%E7%BD%B2/index.html">
 <meta property="og:site_name" content="随记">
-<meta property="og:description" content="RPC 对比 RESTfulRPC 的消息传输可以通过 TCP、UDP 或者 HTTP等，所以有时候我们称之为RPC over TCP、 RPC over HTTP。RPC 通过 HTTP 传输消息的时候和 RESTful的架构是类似的，但是也有不同。 :penguin:RPC over HTTP 与 RESTful对比 首先，对比耦合度，参数顺序  RPC 的客户端和服务器端是紧耦合的，客户端需">
+<meta property="og:description" content="一.docker部署静态网页在项目根目录下新建Dockerfile和docker-compose.yml文件 Dockerfile 1234# 指定基础镜像FROM nginx # 把当前目录复制到.&#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html 也即nginx的默认html目录下COPY . .&#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html  docker-compose.yml 1234567vers">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-06-23T14:58:57.000Z">
-<meta property="article:modified_time" content="2022-06-23T14:59:03.200Z">
+<meta property="article:published_time" content="2022-07-23T03:38:43.000Z">
+<meta property="article:modified_time" content="2022-07-23T03:40:00.017Z">
 <meta property="article:author" content="jddpccz">
+<meta property="article:tag" content="docker">
 <meta name="twitter:card" content="summary_large_image">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>RPC 对比 RESTful - 随记</title>
+  <title>docker部署静态网页 - 随记</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -188,7 +189,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="RPC 对比 RESTful"></span>
+            <span id="subtitle" data-typed-text="docker部署静态网页"></span>
           
         </div>
 
@@ -199,8 +200,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-06-23 22:58" pubdate>
-          2022年6月23日 晚上
+        <time datetime="2022-07-23 11:38" pubdate>
+          2022年7月23日 中午
         </time>
       </span>
     
@@ -211,7 +212,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          undefined 字
+          1.5k 字
         
       </span>
     
@@ -222,7 +223,7 @@
         
         
         
-          NaN 分钟
+          13 分钟
         
       </span>
     
@@ -270,38 +271,31 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">RPC 对比 RESTful</h1>
+            <h1 style="display: none">docker部署静态网页</h1>
             
             
               <div class="markdown-body">
                 
-                <h3 id="RPC-对比-RESTful"><a href="#RPC-对比-RESTful" class="headerlink" title="RPC 对比 RESTful"></a>RPC 对比 RESTful</h3><p><strong>RPC 的消息传输可以通过 TCP、UDP 或者 HTTP等</strong>，所以有时候我们称之为RPC over TCP、 RPC over HTTP。RPC 通过 HTTP 传输消息的时候和 RESTful的架构是类似的，但是也有不同。</p>
-<p><strong>:penguin:RPC over HTTP 与 RESTful对比</strong></p>
-<p>首先，对比耦合度，参数顺序</p>
-<ul>
-<li><p>RPC 的客户端和服务器端是<strong>紧耦合</strong>的，客户端需要知道调用的过程的名字，过程的参数以及它们的类型、顺序等。一旦服务器更改了过程的实现，客户端的实现很容易出问题。</p>
-</li>
-<li><p>RESTful基于 http的语义操作资源，参数的顺序一般没有关系，也很容易的通过代理转换链接和资源位置，从这一点上来说，RESTful 更灵活。</p>
-</li>
-</ul>
-<p>其次，它们操作的对象不一样。 </p>
-<ul>
-<li>RPC 操作的是方法和过程，它要操作的是方法对象。 </li>
-<li>RESTful 操作的是资源(resource)，而不是方法。</li>
-</ul>
-<p>最后</p>
-<ul>
-<li>RESTful执行的是对资源的操作，增加、查找、修改和删除等,主要CURD，所以如果你要<strong>实现一个特定目的的操作</strong>，比如为名字姓张的学生的数学成绩都加上10这样的操作，RESTful的API设计起来就不是那么直观或者有意义。</li>
-<li>在这种情况下, RPC的实现更有意义，它可以实现一个 <code>Student.Increment(Name, Score)</code> 的方法供客户端调用。</li>
-</ul>
-<p>:truck:<strong>RPC over TCP 对比 RESTful</strong></p>
-<p>如果我们直接使用socket实现 RPC，除了上面的不同外，我们可以获得性能上的优势。</p>
-<ul>
-<li>RPC over TCP可以通过长连接减少连接的建立所产生的花费，在调用次数非常巨大的时候(这是目前互联网公司经常遇到的情况,大并发的情况下)，这个花费影响是非常巨大的。</li>
-<li> RESTful 也可以通过 keep-alive 实现长连接， 但是它最大的一个问题是它的request-response模型是阻塞的 (http1.0和 http1.1, http 2.0没这个问题)，发送一个请求后只有等到response返回才能发送第二个请求 (有些http server实现了pipeling的功能，但不是标配)， RPC的实现没有这个限制。</li>
-</ul>
-<p>在当今用户和资源都是大数据大并发的趋势下，一个大规模的公司不可能使用一个单体程序提供所有的功能，微服务的架构模式越来越多的被应用到产品的设计和开发中，<strong>服务和服务之间的通讯也越发的重要</strong>， 所以 RPC 不失是一个解决服务之间通讯的好办法。</p>
+                <h2 id="一-docker部署静态网页"><a href="#一-docker部署静态网页" class="headerlink" title="一.docker部署静态网页"></a>一.docker部署静态网页</h2><p>在项目根目录下新建<code>Dockerfile</code>和<code>docker-compose.yml</code>文件</p>
+<p><strong>Dockerfile</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">指定基础镜像</span><br>FROM nginx <br><span class="hljs-meta prompt_"># </span><span class="language-bash">把当前目录复制到./usr/share/nginx/html 也即nginx的默认html目录下</span><br>COPY . ./usr/share/nginx/html<br></code></pre></td></tr></table></figure>
 
+<p><strong>docker-compose.yml</strong></p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">version:</span> <span class="hljs-string">&#x27;1&#x27;</span> <span class="hljs-comment">#版本</span><br><span class="hljs-attr">services:</span><br>  <span class="hljs-attr">cardWeb:</span>  <span class="hljs-comment">#服务名</span><br>    <span class="hljs-attr">build:</span> <span class="hljs-string">.</span>  <span class="hljs-comment">#从哪找到Dockerfile文件 .表示当前目录</span><br>    <span class="hljs-attr">image:</span> <span class="hljs-string">jddpccz/webcard:last</span>  <span class="hljs-comment">#构建后的镜像名</span><br>    <span class="hljs-attr">ports:</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-number">80</span><span class="hljs-string">:80</span> <span class="hljs-comment">#物理机端口 映射 虚拟机端口</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>右击执行</strong></p>
+<h2 id="二-docker部署vue项目"><a href="#二-docker部署vue项目" class="headerlink" title="二.docker部署vue项目"></a>二.docker部署vue项目</h2><p><strong>Dockerfile</strong></p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs dockerfile"><span class="hljs-keyword">FROM</span> node:lts-alpine<br><span class="hljs-keyword">WORKDIR</span><span class="language-bash"> /build</span><br><span class="hljs-keyword">RUN</span><span class="language-bash"> npm <span class="hljs-built_in">set</span> registry https://registry.npm.taobao.org</span><br><span class="hljs-comment"># 提前复制，可以防止docker的缓存被破坏，节约npm install的时间</span><br><span class="hljs-keyword">COPY</span><span class="language-bash"> package.json /build/package.json</span><br><span class="hljs-keyword">RUN</span><span class="language-bash"> npm install</span><br><span class="hljs-keyword">COPY</span><span class="language-bash"> ./ /build</span><br><span class="hljs-keyword">RUN</span><span class="language-bash"> npm run build</span><br><br><span class="hljs-keyword">FROM</span> nginx<br><span class="hljs-comment"># --from=0 从上一个镜像的目录下</span><br><span class="hljs-keyword">COPY</span><span class="language-bash"> --from=0 /build/dist /usr/share/nginx/html</span><br><span class="hljs-keyword">EXPOSE</span> <span class="hljs-number">80</span><br><br><br></code></pre></td></tr></table></figure>
+
+<p><strong>docker-compose.yml</strong></p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">version:</span> <span class="hljs-string">&#x27;2&#x27;</span><br><span class="hljs-attr">services:</span><br>  <span class="hljs-attr">cardWeb-vue:</span>  <span class="hljs-comment">#服务名</span><br>    <span class="hljs-attr">build:</span> <span class="hljs-string">.</span>  <span class="hljs-comment">#从哪找到Dockerfile文件 .表示当前目录</span><br>    <span class="hljs-attr">image:</span> <span class="hljs-string">jddpccz/card-vue:last</span>  <span class="hljs-comment">#构建后的镜像名</span><br>    <span class="hljs-attr">ports:</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-number">80</span><span class="hljs-string">:80</span> <span class="hljs-comment">#物理机端口 映射 虚拟机端口 注意-后空格</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>.dockerignore</strong> (与<code>.gitignore</code>一样)</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs ini">.DS_Store<br>node_modules<br>/dist<br><br><br><span class="hljs-comment"># local env files</span><br>.env.local<br>.env.*.local<br><br><span class="hljs-comment"># Log files</span><br>npm-debug.log*<br>yarn-debug.log*<br>yarn-error.log*<br>pnpm-debug.log*<br><br><span class="hljs-comment"># Editor directories and files</span><br>.idea<br>.vscode<br>*.suo<br>*.ntvs*<br>*.njsproj<br>*.sln<br>*.sw?<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="三-上传到阿里云镜像服务"><a href="#三-上传到阿里云镜像服务" class="headerlink" title="三.上传到阿里云镜像服务"></a>三.上传到阿里云镜像服务</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">登录</span><br>docker login --username=jddpccz registry.cn-chengdu.aliyuncs.com<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash">上传</span><br>docker tag jddpccz/card-vue:latest registry.cn-chengdu.aliyuncs.com/jddpccz/cards:latest<br>docker push registry.cn-chengdu.aliyuncs.com/jddpccz/cards:latest<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash">pull</span><br>docker pull registry.cn-chengdu.aliyuncs.com/jddpccz/cards:[镜像版本号]<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash">运行   -d 后台运行 -p端口映射 --name 容器名（cards） 后面是要运行的镜像名</span><br>docker run -d -p 8003:80 --name cards registry.cn-chengdu.aliyuncs.com/jddpccz/cards<br></code></pre></td></tr></table></figure>
                 
               </div>
             
@@ -309,6 +303,13 @@
             <div>
               <div class="post-metas my-3">
   
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/docker/">#docker</a>
+      
+    </div>
   
 </div>
 
@@ -318,8 +319,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>RPC 对比 RESTful</div>
-      <div>https://jddpccz.github.io/2022/06/23/RPC 对比 RESTful/</div>
+      <div>docker部署静态网页</div>
+      <div>https://jddpccz.github.io/2022/07/23/docker部署/</div>
     </div>
     <div class="license-meta">
       
@@ -331,7 +332,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年6月23日</div>
+          <div>2022年7月23日</div>
         </div>
       
       
@@ -361,18 +362,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/06/23/RPC/" title="RPC">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">RPC</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/06/23/GO%E4%B8%AD%E7%9A%84%EF%BC%88...%EF%BC%89%E7%94%A8%E6%B3%95/" title="GO中的（...）用法">
-                        <span class="hidden-mobile">GO中的（...）用法</span>
+                      <a href="/2022/06/23/RPC/" title="RPC">
+                        <span class="hidden-mobile">RPC</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

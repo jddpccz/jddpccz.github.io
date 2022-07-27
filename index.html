@@ -1,1248 +1,762 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="keywords" content="Hexo Theme Keep">
-    <meta name="description" content="Hexo Theme Keep">
-    <meta name="author" content="jddpccz">
-    
-    <title>
-        
-        随记
-    </title>
-    
-<link rel="stylesheet" href="/css/style.css">
 
-    <link rel="shortcut icon" href="https://i.loli.net/2020/12/22/LslVe9WzOSr2giJ.jpg">
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/css/font-awesome.min.css">
-    <script id="hexo-configurations">
-    let KEEP = window.KEEP || {};
-    KEEP.hexo_config = {"hostname":"jddpccz.github.io","root":"/","language":"zh-CN","path":"search.json"};
-    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"https://i.loli.net/2020/12/22/LslVe9WzOSr2giJ.jpg","favicon":"https://i.loli.net/2020/12/22/LslVe9WzOSr2giJ.jpg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"https://s2.loli.net/2022/06/23/cTipwDMSRrJzndE.png","description":"Clear Mind"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":true},"lazyload":{"enable":false},"version":"3.4.5"};
-    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#a4b0be">
+  <meta name="author" content="jddpccz">
+  <meta name="keywords" content="">
+  
+    <meta property="og:type" content="website">
+<meta property="og:title" content="随记">
+<meta property="og:url" content="https://jddpccz.github.io/index.html">
+<meta property="og:site_name" content="随记">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="jddpccz">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>随记</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"jddpccz.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"JAVA"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
   </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
 <meta name="generator" content="Hexo 5.4.2"></head>
 
 
 <body>
-.progress-bar-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: $z-index-9;
+  
 
-  if (hexo-config('pjax.enable') == true) {
-
-    .pjax-progress-bar {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 2px;
-      width: 0;
-      background: var(--pjax-progress-bar-color);
-      visibility: hidden;
-      opacity: 0;
-      z-index: $z-index-8;
-      transition-t("width", "0", "0.1", "linear");
-
-
-      &.show {
-        opacity: 1;
-        visibility: visible;
-      }
-    }
-
-
-    .pjax-progress-icon {
-      position: absolute;
-      top: 0;
-      right: 0;
-      z-index: $z-index-8;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 7px 6px 0 0;
-      visibility: hidden;
-      font-size: 1.1rem;
-      color: var(--default-text-color);
-
-      +keep-tablet() {
-        padding: 6px 5px 0 0;
-        font-size: 1rem;
-      }
-
-      &.show {
-        visibility: visible;
-      }
-    }
-
-  }
-
-  if (hexo-config('style.scroll.progress_bar.enable') == true) {
-
-    .scroll-progress-bar {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 0;
-      height: $scroll-progress-bar-height;
-      visibility: hidden;
-      z-index: $z-index-7;
-      background: var(--primary-color);
-      transition-t("width", "0", "0.1", "linear");
-
-      &.hide {
-        display: none !important;
-      }
-    }
-
-  }
-}
-
-<main class="page-container">
-
-    
-        $first-screen-font-size = 2rem;
-$first-screen-icon-size = 1.6rem;
-
-$temp-img = hexo-config('style.first_screen.background_img');
-$first-screen-img = $temp-img ? $temp-img:'/images/bg.svg';
-
-.first-screen-container {
-  position: relative;
-  box-sizing: border-box;
-  width: 100%;
-  overflow: hidden;
-  background: url($first-screen-img) center center / cover no-repeat;
-  background-position-y: $header-height;
-
-
-  +keep-tablet() {
-    background-position-y: $header-height * 0.9;
-  }
-
-  +keep-mobile() {
-    background-position-y: $header-height * 0.8;
-  }
-
-  .content {
-    position: relative;
-    box-sizing: border-box;
-    width: 80%;
-    height: 90%;
-
-    .description {
-      font-weight: bold;
-      font-size: $first-screen-font-size;
-      line-height: 1.8;
-      text-align: center;
-      color: var(--default-text-color);
-
-
-      +keep-tablet() {
-        font-size: $first-screen-font-size * 0.9;
-      }
-    }
-
-
-    .s-icon-list {
-      position: absolute;
-      bottom: 0;
-      font-size: $first-screen-icon-size;
-      text-align: center;
-
-      +keep-tablet() {
-        font-size: $first-screen-icon-size * 0.9;
-      }
-
-      .s-icon-item {
-        margin-right: 20px;
-        cursor: pointer;
-        line-height: 2;
-
-        &:last-child {
-          margin-right: 0;
-        }
-
-      }
-
-    }
-  }
-}
-
+  <header>
     
 
-    <div class="page-main-content">
-
-        <div class="page-main-content-top">
-            $logo-title-font-size = 2rem;
-$pc-search-icon-font-size = 1.5rem;
-$menu-bar-line-height = 2.5px;
-$logo-image-box-width = 46px;
-
-.header-wrapper {
-  width: 100%;
-  height: 100%;
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--background-color);
-  padding-top: $scroll-progress-bar-height;
-
-  hover-style(false, 0, 0);
-
-  .header-content {
-    position: relative;
-    height: 100%;
-    width: $main-content-width;
-    max-width: $content-max-width;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    z-index: $z-index-5;
-
-
-    &.has-first-screen {
-      max-width: $content-max-width * 1.2;
-    }
-
-    +keep-tablet() {
-      width: $main-content-width-tablet;
-    }
-
-    +keep-mobile() {
-      width: $main-content-width-mobile;
-    }
-
-    .left {
-      display: flex;
-      align-items: center;
-      transition-t("transform", "0", "0.2", "linear");
-
-      .header-shrink & {
-        transform: scale(0.72);
-        transform-origin: left;
-      }
-
-
-      if (hexo-config('base_info.logo_img') && hexo-config('base_info.logo_img') != '') {
-        .logo-image {
-          width: $logo-image-box-width;
-          height: $logo-image-box-width;
-          margin-right: 8px;
-
-
-          +keep-tablet() {
-            width: $logo-image-box-width * 0.9;
-            height: $logo-image-box-width * 0.9;
-          }
-
-          +keep-mobile() {
-            width: $logo-image-box-width * 0.8;
-            height: $logo-image-box-width * 0.8;
-          }
-
-          img {
-            border-radius: 6px;
-            width: 100%;
-          }
-        }
-
-      }
-
-      .logo-title {
-        font-size: $logo-title-font-size;
-        font-weight: bold;
-        letter-spacing: 1px;
-        line-height: 1;
-        color: var(--first-text-color);
-
-        +keep-tablet() {
-          font-size: $logo-title-font-size * 0.9;
-        }
-
-        +keep-mobile() {
-          font-size: $logo-title-font-size * 0.8;
-        }
-      }
-
-    }
-
-
-    .right {
-
-      .pc {
-
-        .menu-list {
-          display: flex;
-          align-items: center;
-
-          +keep-tablet() {
-            display: none;
-          }
-
-
-          .menu-item {
-            float: left;
-            position: relative;
-            margin-left: 30px;
-            font-size: 1rem;
-            cursor: pointer;
-            color: var(--default-text-color);
-
-            &:first-child {
-              margin-left: 0;
-            }
-
-
-            a:hover, .active {
-
-              &::after {
-                content: '';
-                position: absolute;
-                bottom: -10px;
-                left: 50%;
-                width: 100%;
-                height: 2px;
-                transform: translateX(-50%);
-                background: var(--primary-color);
-                transition-t("transform, bottom", "0, 0", "0.2, 0.2", "linear, linear");
-
-                .header-shrink & {
-                  bottom: -($header-shrink-height / 2 - 12);
-                }
-              }
-            }
-
-            &.search {
-              font-size: $pc-search-icon-font-size;
-              margin-left: 26px;
-
-              i {
-                color: var(--default-text-color);
-              }
-
-            }
-          }
-
-
-        }
-
-      }
-
-
-      .mobile {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        .icon-item {
-          display: none;
-          position: relative;
-          cursor: pointer;
-          font-size: 18px;
-          margin-left: 12px;
-          width: 20px;
-          height: 20px;
-          color: var(--default-text-color);
-
-          i {
-            color: var(--default-text-color);
-          }
-
-          &:first-child {
-            margin-left: 0;
-          }
-
-          +keep-tablet() {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-          }
-        }
-
-        .menu-bar {
-
-          .menu-bar-middle {
-            width: 18px;
-            height: $menu-bar-line-height;
-            position: relative;
-            background: var(--default-text-color);
-
-            .header-drawer-show & {
-              background: transparent;
-            }
-
-
-            &::before, &::after {
-              content: '';
-              position: absolute;
-              left: 0;
-              width: 100%;
-              height: $menu-bar-line-height;
-              background: var(--default-text-color);
-              transition-t("transform", "0", "0.38", "ease");
-            }
-
-
-            &::before {
-              top: -6px;
-
-              .header-drawer-show & {
-                transform: translateY(6px) rotate(45deg);
-              }
-            }
-
-
-            &::after {
-              bottom: -6px;
-
-              .header-drawer-show & {
-                transform: translateY(-6px) rotate(-45deg);
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-
-
-  .header-drawer {
-    width: 100%;
-    padding: $header-height 0 20px 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: scaleY(0);
-    transform-origin: top;
-    z-index: $z-index-2;
-    background: var(--background-color);
-    transition-t("transform", "0", "0.38", "ease");
-
-    .header-drawer-show & {
-      transform: scaleY(1);
-    }
-
-    .drawer-menu-list {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: center;
-
-      .drawer-menu-item {
-        font-size: 1rem;
-        margin: 6px 0;
-        height: 38px;
-
-        a {
-          padding: 6px 20px;
-          border-radius: 20px;
-          color: var(--default-text-color);
-
-          &:hover {
-            color: var(--second-text-color);
-            border: 1px solid var(--default-text-color);
-          }
-
-
-          &.active {
-            border: 1px solid var(--default-text-color);
-            color: var(--second-text-color);
-          }
-        }
-
-
-      }
-    }
-  }
-
-
-  .window-mask {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.4);
-    z-index: $z-index-1;
-    visibility: hidden;
-    opacity: 0;
-    transition-t("transform, opacity", "0, 0", "0.38, 0.38", "ease, ease");
-
-    .header-drawer-show & {
-      visibility: visible;
-      opacity: 1;
-    }
-  }
-
-}
-
-.header-drawer-show {
-  overflow: hidden;
-}
-
+<div class="header-inner" style="height: 100vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>随记</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Clear Mind"></span>
+          
         </div>
 
-        <div class="page-main-content-middle">
-
-            <div class="main-content">
-
-                
-                    <div class="home-content-container fade-in-down-animation">
-    <ul class="home-article-list">
         
-            <li class="home-article-item">
+      </div>
 
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2022/06/23/RPC/">
-                        RPC
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        RPC
-https://ldbmcs.gitbook.io/java/fen-bu-shi-9/rpc/rpc-kuang-jia-dui-bi
-https://topgoer.com/%E5%BE%AE%E6%9C%8D%E5%8A%A1/RPC....
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Thu Jun 23 2022 22:59:26 GMT+0800">2022-06-23</span></span>
-        
-        
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
     </div>
-
-    <a href="/2022/06/23/RPC/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+  </div>
 </div>
 
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2022/06/23/RPC%20%E5%AF%B9%E6%AF%94%20RESTful/">
-                        RPC 对比 RESTful
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        RPC 对比 RESTfulRPC 的消息传输可以通过 TCP、UDP 或者 HTTP等，所以有时候我们称之为RPC over TCP、 RPC over HTTP。RPC 通过 HTTP 传输消息的时候和 RESTful的架构是类似的，但是也有不同...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Thu Jun 23 2022 22:58:57 GMT+0800">2022-06-23</span></span>
-        
-        
-    </div>
-
-    <a href="/2022/06/23/RPC%20%E5%AF%B9%E6%AF%94%20RESTful/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
-            </li>
-        
-            <li class="home-article-item">
+  </header>
 
+  <main>
+    
+      <div class="container nopadding-x-md">
+        <div id="board"
+          style="margin-top: 0">
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
                 
 
-                <h3 class="home-article-title">
-                    <a href="/2022/06/23/GO%E4%B8%AD%E7%9A%84%EF%BC%88...%EF%BC%89%E7%94%A8%E6%B3%95/">
-                        GO中的（...）用法
-                    </a>
-                </h3>
 
-                <div class="home-article-content markdown-body">
-                    
-                        GO中的（…）用法1.函数中作为可变数量参数12345678910111213141516package mainimport &quot;fmt&quot;func main() &#123;    //multiParam 可以接受可变数量的参数...
-                    
-                </div>
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/07/23/docker%E9%83%A8%E7%BD%B2/" target="_self">
+          <img src="https://api.ixiaowai.cn/mcapi/mcapi.php" srcset="/img/loading.gif" lazyload alt="docker部署静态网页">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/07/23/docker%E9%83%A8%E7%BD%B2/" target="_self">
+          docker部署静态网页
+        </a>
+      </h1>
 
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Thu Jun 23 2022 22:58:35 GMT+0800">2022-06-23</span></span>
+      
+      <a class="index-excerpt " href="/2022/07/23/docker%E9%83%A8%E7%BD%B2/" target="_self">
+        <div>
+          一.docker部署静态网页在项目根目录下新建Dockerfile和docker-compose.yml文件 Dockerfile 1234# 指定基础镜像FROM nginx # 把当前目录复制到.&#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html 也即nginx的默认html目录下COPY . .&#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html  docker-compose.yml 1234567vers
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-07-23 11:38" pubdate>
+              2022-07-23
+            </time>
+          </div>
         
         
-    </div>
-
-    <a href="/2022/06/23/GO%E4%B8%AD%E7%9A%84%EF%BC%88...%EF%BC%89%E7%94%A8%E6%B3%95/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
         
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2022/06/23/go%E7%9A%84%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E7%82%B9/">
-                        go中的相关知识
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        1.结构体中的函数
-结构体函数可以用来模拟类的功能. google官方编程规范规定,包和结构体中变量名大写表示对外暴露,小写表示不对外暴露.相当于其他语言共有私有标识.此规则很多第三方接口遵守
-在函数名的前面申明
-
-12345678910111213...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Thu Jun 23 2022 22:58:12 GMT+0800">2022-06-23</span></span>
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/docker/">#docker</a>
+            
+          </div>
         
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/06/23/RPC/" target="_self">
+          <img src="https://api.ixiaowai.cn/mcapi/mcapi.php" srcset="/img/loading.gif" lazyload alt="RPC">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
         
-    </div>
+        <a href="/2022/06/23/RPC/" target="_self">
+          RPC
+        </a>
+      </h1>
 
-    <a href="/2022/06/23/go%E7%9A%84%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E7%82%B9/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
+      
+      <a class="index-excerpt " href="/2022/06/23/RPC/" target="_self">
+        <div>
+          RPC https:&#x2F;&#x2F;ldbmcs.gitbook.io&#x2F;java&#x2F;fen-bu-shi-9&#x2F;rpc&#x2F;rpc-kuang-jia-dui-bi https:&#x2F;&#x2F;topgoer.com&#x2F;%E5%BE%AE%E6%9C%8D%E5%8A%A1&#x2F;RPC.html  一.简介 远程过程调用（Remote Procedure Call，RPC）是一个计算机通信协议 该协议允许运行于一台计算机的程序调用另一
+        </div>
+      </a>
 
-            </li>
+      <div class="index-btm post-metas">
         
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2022/06/23/CORS%20%E8%B7%A8%E5%9F%9F%E8%B5%84%E6%BA%90%E5%85%B1%E4%BA%AB/">
-                        CORS 跨域资源共享
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        CORS 跨域资源共享一.为什么需要跨域考虑到浏览器的安全，采用了同源策略(Same-Origin Policy)，而为了请求不同域的资源产生了跨域问题
-
-同源策略：同源就是域名、协议、端口完全相同，例如http://a.com与https://a....
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Thu Jun 23 2022 22:57:37 GMT+0800">2022-06-23</span></span>
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-06-23 22:59" pubdate>
+              2022-06-23
+            </time>
+          </div>
         
         
-    </div>
-
-    <a href="/2022/06/23/CORS%20%E8%B7%A8%E5%9F%9F%E8%B5%84%E6%BA%90%E5%85%B1%E4%BA%AB/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
         
-            <li class="home-article-item">
+      </div>
+    </article>
+  </div>
 
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2022/06/23/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9A%84%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/">
-                        微服务的体系结构
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        微服务的体系结构实现微服务体系结构非常困难。任何微服务体系结构都需要解决许多问题（见下表）。下表显示了Kubernetes生态系统中的实现功能与Spring Cloud世界中的等效功能的比较。Spring Cloud生态系统值得注意的一点是，它们都是...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Thu Jun 23 2022 22:57:13 GMT+0800">2022-06-23</span></span>
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/06/23/RPC%20%E5%AF%B9%E6%AF%94%20RESTful/" target="_self">
+          <img src="https://api.ixiaowai.cn/mcapi/mcapi.php" srcset="/img/loading.gif" lazyload alt="RPC 对比 RESTful">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
         
+        <a href="/2022/06/23/RPC%20%E5%AF%B9%E6%AF%94%20RESTful/" target="_self">
+          RPC 对比 RESTful
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt " href="/2022/06/23/RPC%20%E5%AF%B9%E6%AF%94%20RESTful/" target="_self">
+        <div>
+          RPC 对比 RESTfulRPC 的消息传输可以通过 TCP、UDP 或者 HTTP等，所以有时候我们称之为RPC over TCP、 RPC over HTTP。RPC 通过 HTTP 传输消息的时候和 RESTful的架构是类似的，但是也有不同。 :penguin:RPC over HTTP 与 RESTful对比 首先，对比耦合度，参数顺序  RPC 的客户端和服务器端是紧耦合的，客户端需
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
         
-    </div>
-
-    <a href="/2022/06/23/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9A%84%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2022/06/23/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">
-                        微服务-概念
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        微服务-概念:whale:  微服务架构（通常简称为微服务）是指开发应用所用的一种架构形式。通过微服务，可将大型应用分解成多个独立的组件，其中每个组件都有各自的责任领域。在处理一个用户请求时，基于微服务的应用可能会调用许多内部微服务来共同生成其响应。...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Thu Jun 23 2022 22:56:43 GMT+0800">2022-06-23</span></span>
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-06-23 22:58" pubdate>
+              2022-06-23
+            </time>
+          </div>
         
         
-    </div>
-
-    <a href="/2022/06/23/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
         
-            <li class="home-article-item">
+      </div>
+    </article>
+  </div>
 
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2022/06/23/%E6%88%96%E8%AE%B8%E9%9C%80%E8%A6%81%E7%9A%84%E7%BD%91%E7%AB%99/">
-                        或许需要的网站
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        或许需要的网站Edit时间：2022-06-23 16:45:031.软件版本发布时间https://endoflife.date/
-
-
-2.清华开源镜像站https://mirrors.tuna.tsinghua.edu.cn/
-
-
-3.阿里云开源...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Thu Jun 23 2022 22:56:03 GMT+0800">2022-06-23</span></span>
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/06/23/GO%E4%B8%AD%E7%9A%84%EF%BC%88...%EF%BC%89%E7%94%A8%E6%B3%95/" target="_self">
+          <img src="https://api.ixiaowai.cn/mcapi/mcapi.php" srcset="/img/loading.gif" lazyload alt="GO中的（...）用法">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
         
+        <a href="/2022/06/23/GO%E4%B8%AD%E7%9A%84%EF%BC%88...%EF%BC%89%E7%94%A8%E6%B3%95/" target="_self">
+          GO中的（...）用法
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt " href="/2022/06/23/GO%E4%B8%AD%E7%9A%84%EF%BC%88...%EF%BC%89%E7%94%A8%E6%B3%95/" target="_self">
+        <div>
+          GO中的（…）用法1.函数中作为可变数量参数12345678910111213141516package mainimport &quot;fmt&quot;func main() &amp;#123;    &#x2F;&#x2F;multiParam 可以接受可变数量的参数    multiParam(&quot;jerry&quot;, &quot;herry&quot;)    names :&#x3D; []string&amp;#
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
         
-    </div>
-
-    <a href="/2022/06/23/%E6%88%96%E8%AE%B8%E9%9C%80%E8%A6%81%E7%9A%84%E7%BD%91%E7%AB%99/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2022/06/19/go-demo/">
-                        go demo
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        go的相关例子1.guess_unmber12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849package mainimp...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Sun Jun 19 2022 21:10:59 GMT+0800">2022-06-19</span></span>
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-06-23 22:58" pubdate>
+              2022-06-23
+            </time>
+          </div>
         
         
-    </div>
-
-    <a href="/2022/06/19/go-demo/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
         
-            <li class="home-article-item">
+      </div>
+    </article>
+  </div>
 
-                
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/06/23/go%E7%9A%84%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_self">
+          <img src="https://api.ixiaowai.cn/mcapi/mcapi.php" srcset="/img/loading.gif" lazyload alt="go中的相关知识">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/06/23/go%E7%9A%84%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_self">
+          go中的相关知识
+        </a>
+      </h1>
 
-                <h3 class="home-article-title">
-                    <a href="/2022/05/31/hello-world/">
-                        Hello World
-                    </a>
-                </h3>
+      
+      <a class="index-excerpt " href="/2022/06/23/go%E7%9A%84%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_self">
+        <div>
+          1.结构体中的函数 结构体函数可以用来模拟类的功能. google官方编程规范规定,包和结构体中变量名大写表示对外暴露,小写表示不对外暴露.相当于其他语言共有私有标识.此规则很多第三方接口遵守 在函数名的前面申明  1234567891011121314151617type Cat struct &amp;#123;   Name    string   Age     int32   Address s
+        </div>
+      </a>
 
-                <div class="home-article-content markdown-body">
-                    
-                        Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, yo...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Tue May 31 2022 13:02:25 GMT+0800">2022-05-31</span></span>
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-06-23 22:58" pubdate>
+              2022-06-23
+            </time>
+          </div>
         
         
-    </div>
-
-    <a href="/2022/05/31/hello-world/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
         
-    </ul>
+      </div>
+    </article>
+  </div>
 
-    <div class="home-paginator">
-        .paginator {
-  font-size: 1rem;
-  margin-top: 30px;
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/06/23/CORS%20%E8%B7%A8%E5%9F%9F%E8%B5%84%E6%BA%90%E5%85%B1%E4%BA%AB/" target="_self">
+          <img src="https://api.ixiaowai.cn/mcapi/mcapi.php" srcset="/img/loading.gif" lazyload alt="CORS 跨域资源共享">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/06/23/CORS%20%E8%B7%A8%E5%9F%9F%E8%B5%84%E6%BA%90%E5%85%B1%E4%BA%AB/" target="_self">
+          CORS 跨域资源共享
+        </a>
+      </h1>
 
-  a.prev {
-    float: left;
-  }
+      
+      <a class="index-excerpt " href="/2022/06/23/CORS%20%E8%B7%A8%E5%9F%9F%E8%B5%84%E6%BA%90%E5%85%B1%E4%BA%AB/" target="_self">
+        <div>
+          CORS 跨域资源共享一.为什么需要跨域考虑到浏览器的安全，采用了同源策略(Same-Origin Policy)，而为了请求不同域的资源产生了跨域问题  同源策略：同源就是域名、协议、端口完全相同，例如http:&#x2F;&#x2F;a.com与https:&#x2F;&#x2F;a.com就不是同源的，因为协议不同  二.CORS跨源域资源共享机制允许 Web 应用服务器进行跨源访问控制，从而使跨源数据传输得以安全进行。跨域资源共
+        </div>
+      </a>
 
-  a.next {
-    float: right;
-  }
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-06-23 22:57" pubdate>
+              2022-06-23
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
 
-}
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/06/23/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9A%84%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/" target="_self">
+          <img src="https://api.ixiaowai.cn/mcapi/mcapi.php" srcset="/img/loading.gif" lazyload alt="微服务的体系结构">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/06/23/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9A%84%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/" target="_self">
+          微服务的体系结构
+        </a>
+      </h1>
 
-    </div>
-</div>
+      
+      <a class="index-excerpt " href="/2022/06/23/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9A%84%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/" target="_self">
+        <div>
+          微服务的体系结构实现微服务体系结构非常困难。任何微服务体系结构都需要解决许多问题（见下表）。下表显示了Kubernetes生态系统中的实现功能与Spring Cloud世界中的等效功能的比较。Spring Cloud生态系统值得注意的一点是，它们都是基于Java的技术，而Kubernetes是一个多语言运行时平台。    微服务 Spring Cloud与Netflix OSS Kubernete
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-06-23 22:57" pubdate>
+              2022-06-23
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/06/23/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" target="_self">
+          <img src="https://api.ixiaowai.cn/mcapi/mcapi.php" srcset="/img/loading.gif" lazyload alt="微服务-概念">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/06/23/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" target="_self">
+          微服务-概念
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt " href="/2022/06/23/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" target="_self">
+        <div>
+          微服务-概念:whale:  微服务架构（通常简称为微服务）是指开发应用所用的一种架构形式。通过微服务，可将大型应用分解成多个独立的组件，其中每个组件都有各自的责任领域。在处理一个用户请求时，基于微服务的应用可能会调用许多内部微服务来共同生成其响应。 微服务架构的定义微服务架构是一种应用架构类型，其中应用会开发为一系列服务。它提供了独立开发、部署和维护微服务架构图和服务的框架。 在微服务架构中，每
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-06-23 22:56" pubdate>
+              2022-06-23
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/06/23/%E5%A6%82%E4%BD%95%E5%87%86%E5%A4%87%E8%80%83%E5%85%AC/" target="_self">
+          <img src="https://api.ixiaowai.cn/mcapi/mcapi.php" srcset="/img/loading.gif" lazyload alt="如何准备考公">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/06/23/%E5%A6%82%E4%BD%95%E5%87%86%E5%A4%87%E8%80%83%E5%85%AC/" target="_self">
+          如何准备考公
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt " href="/2022/06/23/%E5%A6%82%E4%BD%95%E5%87%86%E5%A4%87%E8%80%83%E5%85%AC/" target="_self">
+        <div>
+          如何准备考公  作者：达若链接：https:&#x2F;&#x2F;www.zhihu.com&#x2F;question&#x2F;30316095&#x2F;answer&#x2F;1028738970来源：知乎著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。  （一）、考公务员的心态考公务员第一条最重要的心态就是：破釜沉舟一般考试准备基本2个月左右，不管是全职准备还是每天抽时间去学习，学习时间长，学习内容比较       多。特别
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-06-23 22:56" pubdate>
+              2022-06-23
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/06/23/%E6%88%96%E8%AE%B8%E9%9C%80%E8%A6%81%E7%9A%84%E7%BD%91%E7%AB%99/" target="_self">
+          <img src="https://api.ixiaowai.cn/mcapi/mcapi.php" srcset="/img/loading.gif" lazyload alt="或许需要的网站">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/06/23/%E6%88%96%E8%AE%B8%E9%9C%80%E8%A6%81%E7%9A%84%E7%BD%91%E7%AB%99/" target="_self">
+          或许需要的网站
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt " href="/2022/06/23/%E6%88%96%E8%AE%B8%E9%9C%80%E8%A6%81%E7%9A%84%E7%BD%91%E7%AB%99/" target="_self">
+        <div>
+          或许需要的网站Edit时间：2022-06-23 16:45:031.软件版本发布时间https:&#x2F;&#x2F;endoflife.date&#x2F;   2.清华开源镜像站https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;   3.阿里云开源镜像站https:&#x2F;&#x2F;developer.aliyun.com&#x2F;mirror&#x2F;   4.命令未找到-command–not-foundhttps:&#x2F;&#x2F;
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-06-23 22:56" pubdate>
+              2022-06-23
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
 
 
-                
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
+
+
+
+              </div>
             </div>
-
+          </div>
         </div>
+      </div>
+    
 
-        <div class="page-main-content-bottom">
-            .footer {
-  font-size: 1rem;
-  color: var(--third-text-color);
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-
-  a {
-    color: var(--third-text-color);
-
-
-    &:hover {
-      color: var(--primary-color);
-
-    }
-  }
-
-  .info-container {
-    padding-bottom: 10px;
-    text-align: center;
-  }
-
-  .info-item {
-    margin: 5px 0;
-  }
-
-  .icon-animate {
-    animation: icon-animate 1.2s ease-in-out infinite;
-  }
-
-}
-
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
         </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
     </div>
-
-    
-
-    <div class="right-bottom-side-tools">
-        $tools-item-width = 32px;
-$tools-item-font-size = 1.1rem;
-$tools-item-border-radius = 1px;
-
-
-.side-tools-container {
-  position: relative;
-
-  .tools-item {
-    width: $tools-item-width;
-    height: $tools-item-width;
-    font-size: $tools-item-font-size;
-    margin-bottom: 3px;
-    cursor: pointer;
-    border-right: none;
-    border-radius: $tools-item-border-radius;
-    box-shadow: 1px 1px 3px var(--shadow-color);
-    color: var(--default-text-color);
-    background: var(--background-color);
-
-    i {
-      color: var(--default-text-color);
-    }
-
-    &:hover {
-      color: var(--background-color);
-      background: var(--primary-color);
-      box-shadow: 2px 2px 6px var(--shadow-color);
-
-      i {
-        color: var(--background-color);
-      }
-    }
-
-    +keep-tablet() {
-      width: $tools-item-width * 0.9;
-      height: $tools-item-width * 0.9;
-      font-size: $tools-item-font-size * 0.9;
-      margin-bottom: 2px;
-    }
-
-    &.rss {
-
-      a {
-        border-radius: $tools-item-border-radius;
-        width: 100%;
-        height: 100%;
-
-        &:hover {
-          color: var(--background-color);
-          background: var(--primary-color);
-          box-shadow: 2px 2px 6px var(--shadow-color);
-        }
-      }
-    }
-  }
-
-
-  .side-tools-list {
-    opacity: 0;
-    transform: translateX(100%);
-    transition-t("transform, opacity", "0, 0", "0.2, 0.2", "linear, linear");
-
-    .tool-expand-width {
-      +keep-tablet() {
-        display: none;
-      }
-    }
-
-
-    &.show {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-
-
-  .exposed-tools-list {
-
-    if (hexo-config('style.scroll.percent.enable') == true) {
-      .tool-scroll-to-top {
-        display: none;
-
-        &.show {
-          display: flex;
-        }
-
-        &:hover {
-
-          .percent {
-            display: none;
-          }
-
-          .arrow-up {
-            display: flex;
-          }
-
-        }
-
-        .arrow-up {
-          display: none;
-        }
-
-        .percent {
-          display: flex;
-          font-size: 1rem;
-        }
-
-      }
-
-    }
-  }
-}
-
-    </div>
-
-    
-
-    .image-viewer-container {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0, 0, 0, 0);
-  visibility: hidden;
-  z-index: $z-index-8;
-  padding: 6%;
-  box-sizing: border-box;
-  transition-t("visibility, background", "0, 0", "0.3, 0.3", "ease, ease");
-
-  &.active {
-    background: rgba(0, 0, 0, 0.5);
-    visibility: visible;
-
-    img {
-      cursor: zoom-out;
-      transform: scale(1);
-      padding: 2px;
-      background: var(--background-color);
-    }
-  }
-
-  img {
-    max-width: 100%;
-    max-height: 100%;
-    transform: scale(0);
-    transition-t("transform", "0", "0.3", "ease");
-  }
-}
-
-
-
-
-    
-        $icon-size = 1.2rem;
-
-.search-pop-overlay {
-  position: fixed;
-  display: flex;
-  height: 100%;
-  width: 100%;
-  left: 0;
-  top: 0;
-  background: rgba(0, 0, 0, 0);
-  visibility: hidden;
-  z-index: $z-index-8;
-  transition-t("visibility, background", "0, 0", "0.3, 0.3", "ease, ease");
-
-  &.active {
-    visibility: visible;
-    background: rgba(0, 0, 0, 0.35);
-
-    .search-popup {
-      transform: scale(1);
-    }
-
-  }
-
-
-  .search-popup {
-    background: var(--background-color);
-    border-radius: 5px;
-    height: 80%;
-    width: 70%;
-    margin: auto;
-    transform: scale(0);
-    z-index: $z-index-6;
-    transition-t("transform", "0", "0.3", "ease");
-
-    +keep-tablet() {
-      width: 80%;
-    }
-
-    +keep-mobile() {
-      width: 90%;
-    }
-
-    .search-header {
-      background: var(--fourth-text-color);
-      border-top-left-radius: 2px;
-      border-top-right-radius: 2px;
-      display: flex;
-      padding: 10px;
-
-      .search-input-field-pre, .popup-btn-close {
-        font-size: $icon-size;
-        padding: 0 10px;
-        display: flex;
-        align-items: center;
-      }
-
-      .search-input-field-pre {
-        cursor: pointer;
-        color: var(--third-text-color);
-      }
-
-      .popup-btn-close {
-        color: var(--default-text-color);
-      }
-
-
-      .search-input-container {
-
-        flex-grow: 1;
-        padding: 2px;
-
-        .search-input {
-          background: transparent;
-          border: 0;
-          outline: 0;
-          width: 100%;
-          font-size: 1.2rem;
-          color: var(--default-text-color);
-
-          &::-webkit-search-cancel-button {
-            display: none;
-          }
-        }
-
-
-      }
-
-
-      .popup-btn-close {
-        cursor: pointer;
-
-        &:hover .fas, far, fab {
-          color: var(--first-text-color);
-        }
-      }
-
-    }
-
-
-    #search-result {
-      display: flex;
-      height: calc(100% - 55px);
-      overflow: auto;
-      padding: 5px 25px;
-
-      .search-result-list {
-        width: 100%;
-        height: 100%;
-        font-size: 1rem;
-
-        li {
-          border-bottom: 1px dashed var(--border-color);
-          padding: 10px 0;
-          margin: 10px 0;
-          box-sizing: border-box;
-
-          &:last-child {
-            border-bottom: none;
-          }
-
-
-          .search-result-title {
-            position: relative;
-            font-weight: bold;
-            margin-bottom: 10px;
-            padding-left: 16px;
-            display: flex;
-            align-items: center;
-
-            &::after {
-              content: '';
-              position: absolute;
-              width: 5px;
-              height: 5px;
-              border-radius: 50%;
-              top: 50%;
-              transform: translateY(-50%);
-              left: 0;
-              background: var(--default-text-color);
-            }
-          }
-
-
-          .search-result {
-            line-height: 2rem;
-            margin: 0;
-            padding-left: 16px;
-            word-wrap: break-word;
-          }
-
-          a {
-            &:hover {
-              color: var(--default-text-color);
-            }
-          }
-
-          .search-keyword {
-            border-bottom: 1px dashed var(--primary-color);
-            color: var(--primary-color);
-            font-weight: bold;
-          }
-
-        }
-      }
-
-
-      #no-result {
-        color: var(--third-text-color);
-        margin: auto;
-      }
-
-    }
-  }
-}
-
-
-    
-
-</main>
-
-
-
-
-<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/dark-light-toggle.js"></script>
-
-
-    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/local-search.js"></script>
-
-
-
-    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/code-copy.js"></script>
-
-
-
-
-<div class="post-scripts pjax">
-    
+  </div>
 </div>
 
+    
 
-    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/libs/pjax.min.js"></script>
-<script>
-    window.addEventListener('DOMContentLoaded', () => {
-        window.pjax = new Pjax({
-            selectors: [
-                'head title',
-                '.page-container',
-                '.pjax'
-            ],
-            history: true,
-            debug: false,
-            cacheBust: false,
-            timeout: 0,
-            analytics: false,
-            currentUrlFullReload: false,
-            scrollRestoration: false,
-            // scrollTo: true,
-        });
+    
+  </main>
 
-        document.addEventListener('pjax:send', () => {
-            KEEP.utils.pjaxProgressBarStart();
-        });
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
 
-        document.addEventListener('pjax:complete', () => {
-            KEEP.utils.pjaxProgressBarEnd();
-            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
-            KEEP.refresh();
-        });
-    });
-</script>
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
 
 
 
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
 </body>
 </html>
